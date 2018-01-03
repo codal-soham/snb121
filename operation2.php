@@ -56,7 +56,7 @@
 	    	$new_no=$no;
 	    	$new_name=$name;
 	    	$sql->execute();
-	    	
+
 	    	echo "Insert successfully";
 		}
 		catch(PDOException $e)
@@ -72,9 +72,14 @@
 		echo $name."<br>";
 		try 
 		{
-			$sql = "UPDATE xyz SET Name='$name' WHERE No=$no";
+			$sql = $conn->prepare("UPDATE xyz SET Name=:name WHERE No=:no");
 
-			$conn->exec($sql); 
+			$sql->bindParam(':no', $new_no);
+	    	$sql->bindParam(':name', $new_name);
+
+	    	$new_no=$no;
+	    	$new_name=$name;
+	    	$sql->execute(); 
 		    echo "Updated successfully";
 		} 
 		catch(PDOException $e)
