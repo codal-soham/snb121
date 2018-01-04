@@ -89,21 +89,6 @@
 					echo "Name: " . $row["Name"]. "<br>";
 				}
 
-
-/*
-$sql1=$conn->prepare("SELECT * from MyP WHERE id=:id");
-             $sql1->bindParam(':id', $id);
-        $sql1->execute();
-        $result = $sql1->fetchAll();
-        foreach($result as $row) {
-            echo "ID=".$row['id']. "    " ."NAME=".$row['name']. '<br>';
-*/
-
-
-
-
-
-
 			} 
 			catch(PDOException $e) 
 			{
